@@ -1,184 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".DetailActivity"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".DetailActivity">
 
-    <TextView
-        android:id="@+id/tv_follower"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/value_followers"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/tv_following"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/tabs" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/follower"
-        app:layout_constraintEnd_toEndOf="@+id/tv_follower"
-        app:layout_constraintStart_toStartOf="@+id/tv_follower"
-        app:layout_constraintTop_toBottomOf="@+id/tv_follower">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/tv_following"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/value_following"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_follower"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/following"
-        app:layout_constraintEnd_toEndOf="@+id/tv_following"
-        app:layout_constraintStart_toStartOf="@+id/tv_following"
-        app:layout_constraintTop_toBottomOf="@+id/tv_following">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="@string/username"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabTextColor="@android:color/white" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_follower"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/value_followers"-->
+    <!--        android:textSize="18sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/tv_following"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"></TextView>-->
 
-    </TextView>
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:text="@string/follower"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tv_follower"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tv_follower"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_follower">-->
 
-    <TextView
-        android:id="@+id/tv_username"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="10dp"
-        android:text="@string/username"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent">
+    <!--    </TextView>-->
 
-    </TextView>
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_following"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/value_following"-->
+    <!--        android:textSize="18sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/tv_follower"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"></TextView>-->
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/name"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/tv_username">
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="@string/following"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tv_following"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tv_following"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_following">-->
 
-    </TextView>
+    <!--    </TextView>-->
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="@string/name"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv_username"
-        app:layout_constraintTop_toBottomOf="@+id/tv_username">
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView3"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="100dp"-->
+    <!--        android:text="@string/username"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-    </TextView>
+    <!--    </TextView>-->
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/location"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_username"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="10dp"-->
+    <!--        android:layout_marginTop="100dp"-->
+    <!--        android:layout_marginEnd="10dp"-->
+    <!--        android:text="@string/username"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/textView3"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-    </TextView>
+    <!--    </TextView>-->
 
-    <TextView
-        android:id="@+id/tv_location"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/location"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_name"
-        app:layout_constraintStart_toStartOf="@+id/tv_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name">
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView4"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="@string/name"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/textView3"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_username">-->
 
-    </TextView>
+    <!--    </TextView>-->
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/company"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_name"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_marginEnd="10dp"-->
+    <!--        android:text="@string/name"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tv_username"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_username">-->
 
-    </TextView>
+    <!--    </TextView>-->
 
-    <TextView
-        android:id="@+id/tv_company"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/company"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_location"
-        app:layout_constraintStart_toStartOf="@+id/tv_location"
-        app:layout_constraintTop_toBottomOf="@+id/tv_location">
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView6"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="@string/location"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/textView4"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView4">-->
 
-    </TextView>
+    <!--    </TextView>-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/repository"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_location"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="@string/location"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tv_name"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tv_name"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_name">-->
 
-    </TextView>
+    <!--    </TextView>-->
 
-    <TextView
-        android:id="@+id/tv_repository"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/repository"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_company"
-        app:layout_constraintStart_toStartOf="@+id/tv_company"
-        app:layout_constraintTop_toBottomOf="@+id/tv_company">
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView7"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="@string/company"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/textView6"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView6">-->
 
-    </TextView>
+    <!--    </TextView>-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_company"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="@string/company"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tv_location"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tv_location"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_location">-->
+
+    <!--    </TextView>-->
+
+    <!--    <TextView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="@string/repository"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/textView7"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView7">-->
+
+    <!--    </TextView>-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_repository"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:text="@string/repository"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tv_company"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tv_company"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_company">-->
+
+    <!--    </TextView>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
