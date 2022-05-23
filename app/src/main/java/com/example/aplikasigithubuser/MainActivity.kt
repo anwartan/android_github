@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-
+        mainViewModel.fetchSearchUser("a")
         mainViewModel.users.observe(this, { users ->
             rvAdapter = UserRecyclerAdapter(users) {
                 val moveWithUserIntent = Intent(this@MainActivity, DetailActivity::class.java)
