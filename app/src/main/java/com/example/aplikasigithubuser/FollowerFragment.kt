@@ -13,7 +13,8 @@ import com.google.android.material.snackbar.Snackbar
 class FollowerFragment : Fragment() {
 
     private val detailViewModel:DetailViewModel by activityViewModels()
-    private lateinit var binding: FragmentFollowerBinding
+    private var _binding: FragmentFollowerBinding? = null
+    private val binding get() = _binding!!
     private lateinit var rvAdapter: UserRecyclerAdapter
 
 
@@ -22,7 +23,7 @@ class FollowerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentFollowerBinding.inflate(inflater,container,false)
+        _binding = FragmentFollowerBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -51,6 +52,11 @@ class FollowerFragment : Fragment() {
         binding.progressBarFollower.visibility = if (it) View.VISIBLE else View.GONE
     }
 
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding=null
+    }
     companion object {
 
         const val ARG_NAME = "username"

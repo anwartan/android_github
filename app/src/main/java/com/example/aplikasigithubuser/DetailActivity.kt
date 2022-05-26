@@ -16,16 +16,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailActivity : AppCompatActivity() {
 
-    companion object {
-        const val EXTRA_USER = "EXTRA_USER"
 
-        @StringRes
-        private val TAB_TITLES = intArrayOf(
-            R.string.tab_text_0,
-            R.string.tab_text_1,
-            R.string.tab_text_2
-        )
-    }
     private lateinit var detailViewModel: DetailViewModel
     private lateinit var binding: ActivityDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +37,7 @@ class DetailActivity : AppCompatActivity() {
             .into(binding.imgAvatarCollapse)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this)
+        sectionsPagerAdapter.id=user.id
         sectionsPagerAdapter.username = user.login
         val viewPager: ViewPager2 = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
@@ -53,23 +45,7 @@ class DetailActivity : AppCompatActivity() {
         TabLayoutMediator(tabs, viewPager) { tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
-//        binding.includeDetail.tvUsername.text = user.login
-//        binding.includeDetail.tvName.text = user.login
-//        binding.imgAvatarCollapse.setImageResource(user.avatar)
-//        binding.includeDetail.tvFollower.text = user.follower.toString()
-//        binding.includeDetail.tvFollowing.text = user.following.toString()
-//        binding.includeDetail.tvCompany.text = user.company
-//        binding.includeDetail.tvLocation.text = user.location
-//        binding.includeDetail.tvRepository.text = user.repository
-//        binding.fabShare.setOnClickListener {
-//            val sharingIntent = Intent(Intent.ACTION_SEND)
-//            sharingIntent.type = "text/html"
-//            sharingIntent.putExtra(
-//                Intent.EXTRA_TEXT,
-//                "Bagikan pengguna ${user.name} yang sedang bekerja di ${user.location} dan serta memiliki repository ${user.reposUrl}"
-//            )
-//            startActivity(Intent.createChooser(sharingIntent, "Share using"))
-//        }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -79,6 +55,17 @@ class DetailActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
 
+    }
+
+    companion object {
+        const val EXTRA_USER = "EXTRA_USER"
+
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.tab_text_0,
+            R.string.tab_text_1,
+            R.string.tab_text_2
+        )
     }
 
 

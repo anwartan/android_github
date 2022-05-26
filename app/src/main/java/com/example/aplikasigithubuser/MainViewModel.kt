@@ -13,9 +13,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainViewModel : ViewModel() {
-    companion object{
-        private const val TAG = "MainViewModel"
-    }
 
 
     private val _users = MutableLiveData<List<User>>(listOf())
@@ -43,19 +40,20 @@ class MainViewModel : ViewModel() {
                     _users.value= responseBody.items
                 } else {
                     _errorText.value = Event(response.message())
-                    Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
             override fun onFailure(call: Call<SearchModelResponse>, t: Throwable) {
                 showLoading(false)
                 _errorText.value = Event(t.message?:"Failure Get Data")
-                Log.e(TAG, "onFailure: ${t.message}")
             }
         })
     }
 
     fun showLoading(b: Boolean) {
         _isLoading.value=b
+    }
+    companion object{
+        private const val TAG = "MainViewModel"
     }
 
 }

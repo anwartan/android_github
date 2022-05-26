@@ -1,6 +1,5 @@
 package com.example.aplikasigithubuser
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,9 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class DetailViewModel : ViewModel() {
-    companion object{
-        private const val TAG = "DetailViewModel"
-    }
+
     private val _user = MutableLiveData<User>()
     val user : LiveData<User> = _user
 
@@ -41,17 +38,17 @@ class DetailViewModel : ViewModel() {
                 showLoading(false)
                 val responseBody = response.body()
                 if (response.isSuccessful && responseBody != null) {
-                    Log.e(TAG, "detail: $responseBody")
-                    _user.value= responseBody
+                    responseBody.let {
+                        _user.value=it
+                    }
+
                 } else {
                     _errorText.value = Event(response.message())
-                    Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
             override fun onFailure(call: Call<User>, t: Throwable) {
                 showLoading(false)
                 _errorText.value = Event(t.message?:"Failure Get Data")
-                Log.e(TAG, "onFailure: ${t.message}")
             }
         })
     }
@@ -67,17 +64,17 @@ class DetailViewModel : ViewModel() {
                 showLoading(false)
                 val responseBody = response.body()
                 if (response.isSuccessful && responseBody != null) {
+                    responseBody.let {
+                        _followers.value=it
+                    }
 
-                    _followers.value= responseBody
                 } else {
                     _errorText.value = Event(response.message())
-                    Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
             override fun onFailure(call: Call<List<User>>, t: Throwable) {
                 showLoading(false)
                 _errorText.value = Event(t.message?:"Failure Get Data")
-                Log.e(TAG, "onFailure: ${t.message}")
             }
         })
     }
@@ -93,17 +90,17 @@ class DetailViewModel : ViewModel() {
                 showLoading(false)
                 val responseBody = response.body()
                 if (response.isSuccessful && responseBody != null) {
+                    responseBody.let {
+                        _following.value=it
+                    }
 
-                    _following.value= responseBody
                 } else {
                     _errorText.value = Event(response.message())
-                    Log.e(TAG, "onFailure: ${response.message()}")
                 }
             }
             override fun onFailure(call: Call<List<User>>, t: Throwable) {
                 showLoading(false)
                 _errorText.value = Event(t.message?:"Failure Get Data")
-                Log.e(TAG, "onFailure: ${t.message}")
             }
         })
     }
@@ -111,5 +108,8 @@ class DetailViewModel : ViewModel() {
 
     private fun showLoading(b: Boolean) {
         _isLoading.value=b
+    }
+
+    companion object{
     }
 }

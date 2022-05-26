@@ -1,7 +1,6 @@
 package com.example.aplikasigithubuser
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +14,8 @@ import com.google.android.material.snackbar.Snackbar
 class FollowingFragment : Fragment() {
 
     private val detailViewModel:DetailViewModel by activityViewModels()
-    private lateinit var binding: FragmentFollowingBinding
+    private var _binding: FragmentFollowingBinding? = null
+    private val binding get() = _binding!!
     private lateinit var rvAdapter: UserRecyclerAdapter
 
 
@@ -25,7 +25,7 @@ class FollowingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentFollowingBinding.inflate(inflater,container,false)
+        _binding = FragmentFollowingBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -40,7 +40,6 @@ class FollowingFragment : Fragment() {
         })
 
         detailViewModel.followings.observe(viewLifecycleOwner,{users->
-            Log.e("Following fragment", "onFailure: ${users}")
 
             rvAdapter = UserRecyclerAdapter(users) {
 
@@ -57,6 +56,10 @@ class FollowingFragment : Fragment() {
         binding.progressBarFollowing.visibility = if (it) View.VISIBLE else View.GONE
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding=null
+    }
     companion object {
 
         const val ARG_NAME = "username"

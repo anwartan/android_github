@@ -7,12 +7,11 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.aplikasigithubuser.DetailInfoFragment
 import com.example.aplikasigithubuser.FollowerFragment
 import com.example.aplikasigithubuser.FollowingFragment
-import com.example.aplikasigithubuser.model.User
 
 class SectionsPagerAdapter(activity: AppCompatActivity): FragmentStateAdapter(activity) {
 
     var username = ""
-    var user : User? =null
+    var id: Int = -1
     override fun getItemCount(): Int {
         return 3
     }
@@ -24,6 +23,7 @@ class SectionsPagerAdapter(activity: AppCompatActivity): FragmentStateAdapter(ac
                 fragment = DetailInfoFragment()
                 fragment.arguments = Bundle().apply {
                     putString(FollowerFragment.ARG_NAME,username)
+                    putInt(DetailInfoFragment.ARG_ID,id)
                 }
             }
             1 -> {

@@ -46,6 +46,13 @@
     <string name="fab">fab</string>
     <string name="tab_text_0">detail</string>
     <string name="share">Share</string>
+    <string name="menu_1">favorite</string>
+    <string name="favorite">Favorite</string>
+    <string name="setting">setting</string>
+    <string name="is_dark">Dark Mode</string>
+    <string name="key_dark">dark</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="unfavorite">Unfavorite</string>
 
     <string-array name="username">
         <item>JakeWharton</item>
