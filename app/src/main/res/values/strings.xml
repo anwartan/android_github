@@ -29,8 +29,8 @@
     <string name="avatar">avatar</string>
     <string name="github">github</string>
     <string name="value_followers">value_followers</string>
-    <string name="follower">Follower</string>
-    <string name="following">Following</string>
+    <string name="follower">Follower :</string>
+    <string name="following">Following :</string>
     <string name="value_following">value_following</string>
     <string name="location">Location :</string>
     <string name="company">Company :</string>

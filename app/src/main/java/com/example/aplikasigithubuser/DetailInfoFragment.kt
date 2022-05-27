@@ -44,7 +44,9 @@ class DetailInfoFragment : Fragment() {
         })
         detailViewModel.user.observe(viewLifecycleOwner,{user->
             binding.tvUsername.text = user.login
-            binding.tvName.text = user.login
+            binding.tvName.text = user.name
+            binding.tvFollower.text = (user.followers?:"0").toString()
+            binding.tvFollowing.text = (user.following?:"0").toString()
             binding.tvCompany.text = user.company
             binding.tvLocation.text = user.location
             binding.tvRepository.text = user.reposUrl

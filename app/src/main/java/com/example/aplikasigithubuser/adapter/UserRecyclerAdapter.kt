@@ -18,7 +18,7 @@ class UserRecyclerAdapter(private val users: List<User>, private val listener: (
         private val txtGithub: TextView = view.findViewById(R.id.tv_github)
 
         fun bind(user: User) {
-            txtName.text = user.login
+            txtName.text = user.name?:user.login
             txtUsername.text = user.login
             txtGithub.text = user.url
             Glide.with(itemView)
